@@ -1,0 +1,98 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <script src="/index.js"></script>
+</head>
+<body>
+    <!-- Sidebar fixe -->
+    <div class="sidebar">
+        <button class="sidebar-btn" onclick="toggleSommaire()" title="Sommaire">
+            ☰
+        </button>
+    </div>
+
+    <!-- Panel Sommaire -->
+    <div class="sommaire-panel" id="sommairePanel">
+        <div class="sommaire-header">
+            <h2 class="sommaire-title">Sommaire</h2>
+        </div>
+        <ul class="sommaire-list">
+            <li class="sommaire-item" onclick="window.location.href='autumn.html'">
+                <span class="sommaire-item-number">1.</span>
+                <span class="sommaire-item-title">Autumn</span>
+            </li>
+            <li class="sommaire-item" onclick="window.location.href='winter.html'">
+                <span class="sommaire-item-number">2.</span>
+                <span class="sommaire-item-title">Winter</span>
+            </li>
+            <li class="sommaire-item" onclick="window.location.href='summer.html'">
+                <span class="sommaire-item-number">3.</span>
+                <span class="sommaire-item-title">Summer</span>
+            </li>
+        </ul>
+    </div>
+
+    <div id="homePage" class="hero-section">
+        <div class="hero-content">
+            <h1>No food waste</h1>
+            <p class="subtitle">Write down one or more ingredients that are sitting in your refrigerator. Then discover tasty recipe ideas that match your selection!</p>
+            
+            <div class="search-card">
+                <h2 class="search-title">Write down your ingredients :</h2>
+                
+                <div class="ingredient-input-area">
+                    <input type="text" id="ingredientInput">
+                    <button class="btn-primary" onclick="addIngredient()">Add</button>
+                </div>
+                
+                <div class="ingredients-tags" id="ingredientsTags"></div>
+                
+                <button class="btn-find" onclick="findRecipes()">Find my receipes</button>
+            </div>
+
+            <div class="categories-section">
+                <h2 class="section-title">Or browse by category</h2>
+                <div class="categories-grid">
+                    <div class="category-item" onclick="showCategory('petit-dej')">
+                        <img src="breakfast.png" alt="free icon" width="100" height="100">
+                        <div class="category-name">Breakfast</div>
+                        <div class="category-desc">To start the day off right</div>
+                    </div>
+                    <div class="category-item" onclick="showCategory('plats')">
+                        <img src="meal.png" alt="free icon" width="100" height="100">
+                        <div class="category-name">Meals</div>
+                        <div class="category-desc">Vegetarian and filling</div>
+                    </div>
+                    <div class="category-item" onclick="showCategory('desserts')">
+                        <img src="dessert.png" alt="free icon">
+                        <div class="category-name">Desserts</div>
+                        <div class="category-desc">Sweet flavors only</div>
+                    </div>
+                    <div class="category-item" onclick="showCategory('snacks')">
+                        <img src="snack.png" alt="free icon">
+                        <div class="category-name">Snacks</div>
+                        <div class="category-desc">enjoy without moderation</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-banner">
+                <h3>💡 Let's reduce food waste!</h3>
+                <p>In France, each person throws away an average of 29 kg of food per year. Together, let's fight waste while discovering delicious recipes!</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="recipesPage" class="recipes-view">
+        <div class="recipes-header">
+            <button class="back-btn" onclick="showHome()">← Back</button>
+            <h2 id="recipesTitle" style="color: #7a2828; font-size: 3em; font-weight: 600; font-family: 'Lucida Console', sans-serif;"></h2>
+        </div>
+        <div class="recipes-grid" id="recipesGrid"></div>
+    </div>
+</body>
+</html>
