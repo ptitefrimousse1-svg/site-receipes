@@ -1,260 +1,33 @@
-
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/site-receipes/index.css">
+    <title>No food waste</title>
+    <link rel="icon" type="image/png" href="plate.png" />
+    <link rel="stylesheet" href="index.css">
 </head>
+<main>
+    <p> id="name"></p>
+    
+</main>
 <body>
-    <!-- Sidebar fixe -->
-    <div class="sidebar">
-        <button class="sidebar-btn" onclick="toggleSommaire()" title="Sommaire">
-            ☰
-        </button>
+    <ul id="nav">
+        <li>home</li>
+
+    </ul>
+    <p></p>
+    <h2>No waste receipes</h2>
+    <h3>TITRE 3</h3>
+    <img src="flower_leaf.png" alt="free icon">
+    <div class="div1" style="background-color: beige;">
+        <h1>This is div 1</h1>
+        <p>Paragraph about receipes</p>
     </div>
-
-    <!-- Panel Sommaire -->
-    <div class="sommaire-panel" id="sommairePanel">
-        <div class="sommaire-header">
-            <h2 class="sommaire-title">Sommaire</h2>
-            <button class="close-btn" onclick="toggleSommaire()">×</button>
-        </div>
-        <ul class="sommaire-list">
-            <li class="sommaire-item" onclick="scrollToSection('home')">
-                <span class="sommaire-item-number">1.</span>
-                <span class="sommaire-item-title">Accueil</span>
-            </li>
-            <li class="sommaire-item" onclick="showCategory('petit-dej'); toggleSommaire()">
-                <span class="sommaire-item-number">2.</span>
-                <span class="sommaire-item-title">Petits-déjeuners</span>
-            </li>
-            <li class="sommaire-item" onclick="showCategory('plats'); toggleSommaire()">
-                <span class="sommaire-item-number">3.</span>
-                <span class="sommaire-item-title">Plats</span>
-            </li>
-            <li class="sommaire-item" onclick="showCategory('desserts'); toggleSommaire()">
-                <span class="sommaire-item-number">4.</span>
-                <span class="sommaire-item-title">Desserts</span>
-            </li>
-            <li class="sommaire-item" onclick="showCategory('snacks'); toggleSommaire()">
-                <span class="sommaire-item-number">5.</span>
-                <span class="sommaire-item-title">Snacks</span>
-            </li>
-            <li class="sommaire-item" onclick="showCategory('batchcooking'); toggleSommaire()">
-                <span class="sommaire-item-number">6.</span>
-                <span class="sommaire-item-title">Batch Cooking</span>
-            </li>
-        </ul>
-    </div>
-
-    <div id="homePage" class="hero-section">
-        <div class="hero-content">
-            <h1>No food waste</h1>
-            <p class="subtitle">Écrivez un ou plusieurs ingrédients qui poireautent dans votre frigo, ou choisissez-en un parmi notre sélection. Découvrez ensuite des idées de recettes savoureuses qui correspondent à votre sélection !</p>
-            
-            <div class="search-card">
-                <h2 class="search-title">Entrez vos ingrédients :</h2>
-                
-                <div class="ingredient-input-area">
-                    <input type="text" id="ingredientInput" placeholder="Ex: tomates, aubergines, riz...">
-                    <button class="btn-primary" onclick="addIngredient()">Ajouter</button>
-                </div>
-                
-                <div class="ingredients-tags" id="ingredientsTags"></div>
-                
-                <button class="btn-find" onclick="findRecipes()">🔍 Trouver mes recettes</button>
-            </div>
-
-            <div class="categories-section">
-                <h2 class="section-title">Ou parcourez par catégorie</h2>
-                <div class="categories-grid">
-                    <div class="category-item" onclick="showCategory('petit-dej')">
-                        <div class="category-icon">🥐</div>
-                        <div class="category-name">Petits-déjeuners</div>
-                        <div class="category-desc">Commencez bien la journée</div>
-                    </div>
-                    <div class="category-item" onclick="showCategory('plats')">
-                        <div class="category-icon">🍽️</div>
-                        <div class="category-name">Plats</div>
-                        <div class="category-desc">Repas complets</div>
-                    </div>
-                    <div class="category-item" onclick="showCategory('desserts')">
-                        <div class="category-icon">🍰</div>
-                        <div class="category-name">Desserts</div>
-                        <div class="category-desc">Douceurs sucrées</div>
-                    </div>
-                    <div class="category-item" onclick="showCategory('snacks')">
-                        <div class="category-icon">🍿</div>
-                        <div class="category-name">Snacks</div>
-                        <div class="category-desc">Encas savoureux</div>
-                    </div>
-                    <div class="category-item" onclick="showCategory('batchcooking')">
-                        <div class="category-icon">📅</div>
-                        <div class="category-name">Batch Cooking</div>
-                        <div class="category-desc">Planifiez vos repas</div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="info-banner">
-                <h3>💡 Réduisons le gaspillage alimentaire</h3>
-                <p>En France, chaque personne jette en moyenne 29 kg de nourriture par an. Ensemble, utilisons intelligemment nos ingrédients pour préserver notre planète et notre porte-monnaie !</p>
-            </div>
-        </div>
-    </div>
-
-    <div id="recipesPage" class="recipes-view">
-        <div class="recipes-header">
-            <button class="back-btn" onclick="showHome()">← Retour</button>
-            <h2 id="recipesTitle" style="color: #667eea; font-size: 2em; font-weight: 600;"></h2>
-        </div>
-        <div class="recipes-grid" id="recipesGrid"></div>
-    </div>
-
-    <script>
-        let ingredients = [];
-        
-        function toggleSommaire() {
-            const panel = document.getElementById('sommairePanel');
-            panel.classList.toggle('active');
-        }
-
-        function scrollToSection(section) {
-            if (section === 'home') {
-                showHome();
-                toggleSommaire();
-            }
-        }
-        
-        const recipesData = {
-            'petit-dej': [
-                { name: 'Pancakes à la banane', nutrition: 'Protéines: 8g | Glucides: 45g | Calories: 320', ingredients: ['banane', 'farine', 'oeufs', 'lait'] },
-                { name: 'Smoothie bowl', nutrition: 'Protéines: 6g | Glucides: 35g | Calories: 250', ingredients: ['banane', 'fraises', 'yaourt', 'miel'] },
-                { name: 'Omelette aux légumes', nutrition: 'Protéines: 15g | Glucides: 8g | Calories: 220', ingredients: ['oeufs', 'tomates', 'poivrons', 'fromage'] },
-                { name: 'Porridge aux fruits', nutrition: 'Protéines: 7g | Glucides: 52g | Calories: 280', ingredients: ['flocons avoine', 'lait', 'fruits', 'miel'] }
-            ],
-            'plats': [
-                { name: 'Poulet rôti aux légumes', nutrition: 'Protéines: 35g | Glucides: 25g | Calories: 450', ingredients: ['poulet', 'carottes', 'pommes de terre', 'oignon'] },
-                { name: 'Pâtes carbonara', nutrition: 'Protéines: 22g | Glucides: 60g | Calories: 580', ingredients: ['pâtes', 'lardons', 'oeufs', 'parmesan'] },
-                { name: 'Curry de légumes', nutrition: 'Protéines: 12g | Glucides: 40g | Calories: 350', ingredients: ['lait de coco', 'curry', 'légumes', 'riz'] },
-                { name: 'Gratin dauphinois', nutrition: 'Protéines: 14g | Glucides: 35g | Calories: 420', ingredients: ['pommes de terre', 'crème', 'lait', 'fromage'] }
-            ],
-            'desserts': [
-                { name: 'Fondant au chocolat', nutrition: 'Protéines: 6g | Glucides: 55g | Calories: 420', ingredients: ['chocolat', 'beurre', 'oeufs', 'sucre'] },
-                { name: 'Compote de pommes', nutrition: 'Protéines: 1g | Glucides: 30g | Calories: 120', ingredients: ['pommes', 'sucre', 'cannelle'] },
-                { name: 'Mousse au citron', nutrition: 'Protéines: 5g | Glucides: 25g | Calories: 180', ingredients: ['citron', 'oeufs', 'sucre', 'crème'] },
-                { name: 'Crumble aux fruits', nutrition: 'Protéines: 4g | Glucides: 48g | Calories: 320', ingredients: ['fruits', 'farine', 'beurre', 'sucre'] }
-            ],
-            'snacks': [
-                { name: 'Energy balls', nutrition: 'Protéines: 4g | Glucides: 18g | Calories: 120', ingredients: ['dattes', 'amandes', 'cacao', 'miel'] },
-                { name: 'Houmous maison', nutrition: 'Protéines: 8g | Glucides: 15g | Calories: 180', ingredients: ['pois chiches', 'tahini', 'citron', 'ail'] },
-                { name: 'Guacamole', nutrition: 'Protéines: 2g | Glucides: 9g | Calories: 150', ingredients: ['avocat', 'tomate', 'citron', 'oignon'] },
-                { name: 'Smoothie protéiné', nutrition: 'Protéines: 15g | Glucides: 28g | Calories: 220', ingredients: ['banane', 'beurre cacahuète', 'lait', 'protéine'] }
-            ],
-            'batchcooking': [
-                { name: 'Lundi: Bolognaise', nutrition: 'Protéines: 28g | Glucides: 55g | Calories: 520', ingredients: ['viande hachée', 'tomates', 'pâtes', 'oignon'] },
-                { name: 'Mardi: Poulet teriyaki', nutrition: 'Protéines: 32g | Glucides: 48g | Calories: 480', ingredients: ['poulet', 'sauce soja', 'riz', 'légumes'] },
-                { name: 'Mercredi: Quiche lorraine', nutrition: 'Protéines: 18g | Glucides: 30g | Calories: 420', ingredients: ['pâte', 'lardons', 'oeufs', 'crème'] },
-                { name: 'Jeudi: Chili con carne', nutrition: 'Protéines: 26g | Glucides: 42g | Calories: 460', ingredients: ['viande', 'haricots rouges', 'tomates', 'épices'] }
-            ]
-        };
-
-        function addIngredient() {
-            const input = document.getElementById('ingredientInput');
-            const value = input.value.trim().toLowerCase();
-            
-            if (value && !ingredients.includes(value)) {
-                ingredients.push(value);
-                updateTags();
-                input.value = '';
-            }
-        }
-
-        function removeIngredient(ingredient) {
-            ingredients = ingredients.filter(i => i !== ingredient);
-            updateTags();
-        }
-
-        function updateTags() {
-            const tags = document.getElementById('ingredientsTags');
-            if (ingredients.length === 0) {
-                tags.innerHTML = '';
-                return;
-            }
-            tags.innerHTML = ingredients.map(ing => 
-                `<div class="tag">
-                    ${ing}
-                    <span class="remove" onclick="removeIngredient('${ing}')">×</span>
-                </div>`
-            ).join('');
-        }
-
-        function findRecipes() {
-            if (ingredients.length === 0) {
-                alert('Veuillez ajouter au moins un ingrédient !');
-                return;
-            }
-
-            const allRecipes = Object.values(recipesData).flat();
-            const matching = allRecipes.filter(recipe => 
-                recipe.ingredients.some(ing => 
-                    ingredients.some(userIng => ing.includes(userIng) || userIng.includes(ing))
-                )
-            );
-
-            if (matching.length === 0) {
-                alert('Aucune recette trouvée. Essayez d\'autres ingrédients !');
-                return;
-            }
-
-            displayRecipes('Recettes trouvées avec vos ingrédients', matching);
-        }
-
-        function showCategory(category) {
-            const titles = {
-                'petit-dej': 'Petits-déjeuners',
-                'plats': 'Plats principaux',
-                'desserts': 'Desserts',
-                'snacks': 'Snacks & Collations',
-                'batchcooking': 'Semaine Batch Cooking'
-            };
-            displayRecipes(titles[category], recipesData[category]);
-        }
-
-        function displayRecipes(title, recipes) {
-            document.getElementById('recipesTitle').textContent = title;
-            const grid = document.getElementById('recipesGrid');
-            
-            grid.innerHTML = recipes.map(recipe => 
-                `<div class="recipe-card">
-                    <div class="recipe-name">${recipe.name}</div>
-                    <div class="recipe-ingredients">
-                        <strong>Ingrédients :</strong><br>
-                        ${recipe.ingredients.join(', ')}
-                    </div>
-                    <div class="recipe-nutrition">${recipe.nutrition}</div>
-                </div>`
-            ).join('');
-
-            document.getElementById('homePage').style.display = 'none';
-            document.getElementById('recipesPage').style.display = 'block';
-            window.scrollTo(0, 0);
-        }
-
-        function showHome() {
-            document.getElementById('homePage').style.display = 'flex';
-            document.getElementById('recipesPage').style.display = 'none';
-            window.scrollTo(0, 0);
-        }
-
-        document.getElementById('ingredientInput').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                addIngredient();
-            }
-        });
-    </script>
+    <div class="container">
+    <h1>Welcome</h1>
+    <p>This is a simple container example.</p>
+</div>
 </body>
 </html>
-
 

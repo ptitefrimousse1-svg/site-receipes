@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summer salad - No Food Waste</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        .recipe-detail {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .recipe-title {
+            font-size: 2.5em;
+            color: #7a2828;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .recipe-image {
+            width: 50%;
+            max-width: 600px;
+            height: 500px;
+            align-self: center;
+            object-fit: cover;
+            border-radius: 15px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .recipe-info {
+            display: flex;
+            justify-content: space-around;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-label {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .info-value {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #7a2828;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #7a2828;
+            margin: 30px 0 20px 0;
+            border-bottom: 3px solid #7a2828;
+            padding-bottom: 10px;
+        }
+
+        .ingredients-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .ingredients-list li {
+            padding: 12px 20px;
+            background: #f8f9fa;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border-left: 4px solid #7a2828;
+        }
+
+        .instructions-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+
+        .instructions-list li {
+            counter-increment: step-counter;
+            padding: 20px;
+            background: #f8f9fa;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            position: relative;
+            padding-left: 70px;
+        }
+
+        .instructions-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            background: #7a2828;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .tips-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #ffc107;
+            margin-top: 30px;
+        }
+
+        .tips-title {
+            font-size: 1.3em;
+            color: #856404;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <button class="sidebar-btn" onclick="toggleSommaire()" title="Sommaire">
+            ☰
+        </button>
+    </div>
+
+    <!-- Panel Sommaire -->
+    <div class="sommaire-panel" id="sommairePanel">
+        <div class="sommaire-header">
+            <h2 class="sommaire-title">Sommaire</h2>
+        </div>
+        <ul class="sommaire-list">
+            <li class="sommaire-item" onclick="window.location.href='index.html'">
+                <span class="sommaire-item-number">1.</span>
+                <span class="sommaire-item-title">Home page</span>
+            </li>
+            <li class="sommaire-item" onclick="window.location.href='autumn.html'">
+                <span class="sommaire-item-number">2.</span>
+                <span class="sommaire-item-title">Autumn</span>
+            </li>
+            <li class="sommaire-item" onclick="window.location.href='winter.html'">
+                <span class="sommaire-item-number">3.</span>
+                <span class="sommaire-item-title">Winter</span>
+            </li>
+            <li class="sommaire-item" onclick="window.location.href='summer.html'">
+                <span class="sommaire-item-number">4.</span>
+                <span class="sommaire-item-title">Summer</span>
+            </li>
+            <li class="sommaire-item" onclick="window.location.href='batchcooking.html'">
+                <span class="sommaire-item-number">5.</span>
+                <span class="sommaire-item-title">Batchcooking</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="recipe-detail">
+        <button class="back-btn" onclick="history.back()">← Back</button>
+        
+        <h1 class="recipe-title">Summer salad</h1>
+
+        <img src="salad.jpg" alt="Summer salad" class="recipe-image">
+
+        <div class="recipe-info">
+            <div class="info-item">
+                <div class="info-label">⏱️ Prep Time</div>
+                <div class="info-value">15 min</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">🔥 Cook Time</div>
+                <div class="info-value">30 min</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">👥 Servings</div>
+                <div class="info-value">6</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Ingredients</h2>
+        <ul class="ingredients-list">
+            <li> 400g puy lentils (green lentils will do)</li>
+            <li> 1tbsp red wine vinegar</li>
+            <li> 1.5 tsp dijon mustard</li>
+            <li> 1/2 tsp dried oregano</li>   
+            <li> 1 red onion, finely chopped</li> 
+            <li> 2 tbsp olive oil</li>
+            <li> handful flat leaf parsley, chopped</li>
+            <li> salt + pepper</li>
+            <li> cherry tomatoes</li>
+            <li> 1 courgette, sliced into thin rounds</li>
+            <li> 2 cloves garlic, minced</li>
+            <li> 1 mozzarella</li>
+        </ul>
+
+        <h2 class="section-title">Instructions</h2>
+        <ol class="instructions-list">
+            <li>Cover the lentils with plenty of water in a large saucepan with a lid and a pinch of salt. Bring to a boil then simmer until the lentils are al dente, about 25-35 minutes, depending on your lentils.</li>
+            <li>In a large salad bowl, mix together the red wine vinegar, mustard, oregano, red onion, olive oil, parsley and a pinch of salt + pepper. Add in the sliced tomatoes.</li>
+            <li>Slice the courgette thinly, and fry on a medium low heat in a small amount of oil until golden, adding the garlic just before it is cooked for 2-3 mins. Add to the salad bowl with the dressing.</li>
+            <li>Slice the mozzarella and add it to the salad bowl.</li>
+            <li>Drain the lentils and add to the salad bowl with the chopped basil.</li>
+            <li>Serve. It is best served warm, but is also good at room temperature.</li>
+        </ol>
+
+
+    <script>
+        function toggleSommaire() {
+            const panel = document.getElementById('sommairePanel');
+            panel.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

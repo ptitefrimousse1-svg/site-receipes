@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cauliflower gratin - No Food Waste</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        .recipe-detail {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 40px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .recipe-title {
+            font-size: 2.5em;
+            color: #7a2828;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .recipe-image {
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .recipe-info {
+            display: flex;
+            justify-content: space-around;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 30px 0;
+        }
+
+        .info-item {
+            text-align: center;
+        }
+
+        .info-label {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        .info-value {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #7a2828;
+        }
+
+        .section-title {
+            font-size: 1.8em;
+            color: #7a2828;
+            margin: 30px 0 20px 0;
+            border-bottom: 3px solid #7a2828;
+            padding-bottom: 10px;
+        }
+
+        .ingredients-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .ingredients-list li {
+            padding: 12px 20px;
+            background: #f8f9fa;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border-left: 4px solid #7a2828;
+        }
+
+        .instructions-list {
+            counter-reset: step-counter;
+            list-style: none;
+            padding: 0;
+        }
+
+        .instructions-list li {
+            counter-increment: step-counter;
+            padding: 20px;
+            background: #f8f9fa;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            position: relative;
+            padding-left: 70px;
+        }
+
+        .instructions-list li::before {
+            content: counter(step-counter);
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            background: #7a2828;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+        }
+
+        .tips-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #ffc107;
+            margin-top: 30px;
+        }
+
+        .tips-title {
+            font-size: 1.3em;
+            color: #856404;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <button class="sidebar-btn" onclick="toggleSommaire()" title="Sommaire">
+            ☰
+        </button>
+    </div>
+
+    <!-- Panel Sommaire -->
+    <div class="sommaire-panel" id="sommairePanel">
+        <div class="sommaire-header">
+            <h2 class="sommaire-title">Sommaire</h2>
+        </div>
+        <ul class="sommaire-list">
+            <li class="sommaire-item" onclick="window.location.href='index.html'">
+                <span class="sommaire-item-number">1.</span>
+                <span class="sommaire-item-title">Home page</span>
+            </li>
+            <li class="sommaire-item" onclick="window.location.href='autumn.html'">
+                <span class="sommaire-item-number">2.</span>
+                <span class="sommaire-item-title">Autumn</span>
+            </li>
+            <li class="sommaire-item" onclick="window.location.href='winter.html'">
+                <span class="sommaire-item-number">3.</span>
+                <span class="sommaire-item-title">Winter</span>
+            </li>
+            <li class="sommaire-item" onclick="window.location.href='summer.html'">
+                <span class="sommaire-item-number">4.</span>
+                <span class="sommaire-item-title">Summer</span>
+            </li>
+            <li class="sommaire-item" onclick="window.location.href='batchcooking.html'">
+                <span class="sommaire-item-number">5.</span>
+                <span class="sommaire-item-title">Batchcooking</span>
+            </li>
+        </ul>
+    </div>
+
+    <div class="recipe-detail">
+        <button class="back-btn" onclick="history.back()">← Back</button>
+        
+        <h1 class="recipe-title">Cauliflower gratin and salad</h1>
+
+        <img src="gratin.jpg" alt="Cauliflower gratin" class="recipe-image">
+
+        <div class="recipe-info">
+            <div class="info-item">
+                <div class="info-label">⏱️ Prep Time</div>
+                <div class="info-value">15 min</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">🔥 Cook Time</div>
+                <div class="info-value">25-30 min</div>
+            </div>
+            <div class="info-item">
+                <div class="info-label">👥 Servings</div>
+                <div class="info-value">6</div>
+            </div>
+        </div>
+
+        <h2 class="section-title">Ingredients</h2>
+        <ul class="ingredients-list">
+            <li>1 cauliflower (about 1.8 lb)</li>
+            <li>Some grated cheese</li>
+            <li>2 tablespoons olive oil</li>
+            <li>1 tablespoon butter</li>
+            <li>1 tablespoon flour</li>
+            <li>500 ml milk</li>
+            <li>Salt and pepper to taste</li>
+        </ul>
+        <h2 class="section-title">Instructions</h2>
+        <ol class="instructions-list">
+            <li>Preheat the oven to 350°F. Fill a large saucepan with salted water and bring to a boil. Add the cauliflower florets to the boiling water. Cook for about 5 to 7 minutes, until they are slightly tender but still crunchy. This partial cooking helps to preserve the cauliflower's texture after baking. Drain the florets well and set aside.</li>
+            <li>Prepare the béchamel sauce: In a saucepan, melt the butter over medium heat. Add the flour and mix well to form a roux. Cook for about 1 to 2 minutes, stirring constantly with a wooden spatula or whisk, until the mixture turns slightly golden.Add the milk: Slowly pour in the milk while continuing to stir. Allow the sauce to thicken, stirring regularly. The béchamel should reach a creamy, thick consistency, which takes about 5 minutes. Season the sauce.</li>
+            <li>Prepare the dish: Arrange the cauliflower florets in the prepared dish, spreading them evenly.</li>
+            <li>Add the sauce: Pour the béchamel sauce over the cauliflower and add some grated cheese on top.</li>
+            <li>Bake the gratin: Place the dish in the preheated oven. Bake the gratin for 25 to 30 minutes.</li>
+            <li>Serve it with a salad and enjoy!</li>
+        </ol>
+
+        <div class="tips-box">
+            <div class="tips-title">💡 Chef's Tips</div>
+            <p>To make it tastier you can add nutmeg nut in your béchamel!</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleSommaire() {
+            const panel = document.getElementById('sommairePanel');
+            panel.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summer Season</title>
+    <link rel="stylesheet" href="home.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #fff59d 0%, #fcf45b 50%,#ffa726 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        
+        .season-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .season-header {
+            text-align: center;
+            color: white;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .season-header h1 {
+            font-size: 3.5em;
+            margin-bottom: 10px;
+        }
+        
+        .season-header p {
+            font-size: 1.3em;
+            opacity: 0.95;
+        }
+        
+        .content-section {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        .content-section h2 {
+            color: #f4511e;
+            font-size: 2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #ffa726;
+            padding-bottom: 10px;
+        }
+        
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin: 25px 0;
+        }
+        
+        .ingredient-item {
+            background: #fff9c4;
+            padding: 15px;
+            border-radius: 12px;
+            text-align: center;
+            font-weight: 600;
+            color: #f4511e;
+            transition: transform 0.3s;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        
+        .ingredient-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        .recipes-section {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+            margin-top: 25px;
+        }
+        
+        .recipe-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+            border: 2px solid #ffa726;
+        }
+        
+        .recipe-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+        
+        .recipe-card h3 {
+            color: #f4511e;
+            margin-bottom: 15px;
+            font-size: 1.4em;
+        }
+        
+        .recipe-card a {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 25px;
+            background: #f4511e;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        .recipe-card a:hover {
+            background: #d84315;
+        }
+        
+        .tips-section {
+            background: linear-gradient(135deg, #ede7af 0%, #f3ce5f 100%);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #ffa726;
+        }
+        
+        .tips-section h3 {
+            color: #f4511e;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+        
+        .tips-section ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tips-section li {
+            padding: 10px 0;
+            padding-left: 25px;
+            position: relative;
+        }
+        
+        .tips-section li:before {
+            content: "☀️";
+            position: absolute;
+            left: 0;
+        }
+        
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 30px;
+            padding: 12px 30px;
+            background: rgba(255, 255, 255, 0.9);
+            color: #f4511e;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: 2px solid white;
+        }
+        
+        .back-btn:hover {
+            background: white;
+            transform: translateX(-5px);
+        }
+    </style>
+</head>
+<body>
+    <div class="season-container">
+        <a href="index1.html" class="back-btn">← Back to Home</a>
+        
+        <div class="season-header">
+            <h1><img src="summer.png" alt="">Summer Freshness<img src="summer.png" alt=""></h1>
+            <p>Light and refreshing recipes for sunny days</p>
+        </div>
+        
+        <div class="content-section">
+            <h2>🍅 Seasonal Fruits & Vegetables</h2>
+            <div class="ingredients-grid">
+                <div class="ingredient-item">🍅 Tomatoes</div>
+                <div class="ingredient-item">🥒 Cucumber</div>
+                <div class="ingredient-item">🫑 Peppers</div>
+                <div class="ingredient-item">🥬 Lettuce</div>
+                <div class="ingredient-item">🍓 Strawberries</div>
+                <div class="ingredient-item">🍉 Watermelon</div>
+                <div class="ingredient-item">🍑 Peaches</div>
+                <div class="ingredient-item">🍒 Cherries</div>
+                <div class="ingredient-item">🥕 Carrots</div>
+                <div class="ingredient-item">🥦 Zucchini</div>
+                <div class="ingredient-item">🌽 Corn</div>
+                <div class="ingredient-item">🍆 Eggplant</div>
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <h2>🥗 Refreshing Summer Recipes</h2>
+            <div class="recipes-section">
+                <div class="recipe-card">
+                    <h3>Summer Salad</h3>
+                    <p>Fresh and colorful salad with seasonal vegetables</p>
+                    <p><strong>Main ingredients:</strong> Lentils, cucumber, tomatoes, zucchini</p>
+                    <a href="salad.html">View Recipe →</a>
+                </div>
+                
+                <div class="recipe-card">
+                    <h3>Smoothie Bowl</h3>
+                    <p>Cool and nutritious breakfast or snack</p>
+                    <p><strong>Main ingredients:</strong> Frozen berries, banana, granola</p>
+                    <a href="smoothie.html">View Recipe →</a>
+                </div>
+                
+                <div class="recipe-card">
+                    <h3>Houmous Plate</h3>
+                    <p>Perfect for light summer appetizers</p>
+                    <p><strong>Main ingredients:</strong> Chickpeas, garlic, sesame oil</p>
+                    <a href="houmous.html">View Recipe →</a>
+                </div>
+                
+                <div class="recipe-card">
+                    <h3>Yogurt Bowl</h3>
+                    <p>Light and refreshing breakfast option</p>
+                    <p><strong>Main ingredients:</strong> Yogurt, fresh fruits, granola</p>
+                    <a href="yogurt.html">View Recipe →</a>
+                </div>
+                
+                <div class="recipe-card">
+                    <h3>Red Berries Crumble</h3>
+                    <p>Sweet summer dessert with fresh berries</p>
+                    <p><strong>Main ingredients:</strong> Red berries, flour, oats</p>
+                    <a href="crumble.html">View Recipe →</a>
+                </div>
+                
+                <div class="recipe-card">
+                    <h3>Blueberry Muffins</h3>
+                    <p>Perfect for summer picnics</p>
+                    <p><strong>Main ingredients:</strong> Blueberries, oat flour, banana</p>
+                    <a href="muffins.html">View Recipe →</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="content-section">
+            <div class="tips-section">
+                <h3>💡 Summer Food Tips</h3>
+                <ul>
+                    <li><strong>Stay Hydrated:</strong> Use cucumber and watermelon for extra hydration</li>
+                    <li><strong>Fresh & Raw:</strong> Enjoy vegetables raw in salads to preserve nutrients</li>
+                    <li><strong>Preserve:</strong> Make jams and freeze berries for winter months</li>
+                    <li><strong>Light Meals:</strong> Opt for cold soups and salads during hot days</li>
+                    <li><strong>Local Markets:</strong> Buy directly from farmers for the freshest produce</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
