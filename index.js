@@ -196,7 +196,6 @@ function displayRecipes(title, recipes) {
                     <strong>Ingredients:</strong><br>
                     ${recipe.ingredients.join(', ')}
                 </div>
-                <div class="recipe-nutrition">${recipe.nutrition}</div>
                 <div style="margin-top: 15px; padding: 10px 20px; background: #7a2828; color: white; border-radius: 25px; text-align: center; font-weight: 600;">
                     View Full Recipe →
                 </div>
@@ -219,4 +218,5 @@ function displayRecipes(title, recipes) {
         if (e.key === 'Enter') {
             addIngredient();
         }
+
     });
